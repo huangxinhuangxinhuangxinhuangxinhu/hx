@@ -5,23 +5,23 @@ let router = [
         Iconfont: 'el-icon-message',//图标
         children: [
             {
-                path: '/manage/goods/domestic',
+                path: '/manage/goods/domf',
                 name: '国产水果',
             },
             {
-                path: '/manage/goods/entrance',
+                path: '/manage/goods/impf',
                 name: '进口水果',
             },
             {
-                path: '/manage/goods/sarcocarp',
+                path: '/manage/goods/pup',
                 name: '果肉制品',
             },
             {
-                path: '/manage/goods/chemical',
+                path: '/manage/goods/org',
                 name: '有机化肥',
             },
             {
-                path: '/manage/goods/boutique',
+                path: '/manage/goods/box',
                 name: '精品礼盒',
             },
         ]

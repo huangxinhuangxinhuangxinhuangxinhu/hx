@@ -34,7 +34,7 @@
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
-        <span>头部在这里，复制粘贴这句话在vs code里找</span>
+      <i class="el-icon-error" @click="gotoLogin"></i>
       </el-header>
 
       <el-main>
@@ -52,6 +52,11 @@ export default {
     return {
       routerList
     };
+  },
+  methods:{
+    gotoLogin(){
+        this.$router.push({name:'login'});
+    }
   }
 };
 </script>
@@ -71,6 +76,9 @@ export default {
   height: 100% !important;
   .el-aside {
     height: 100%;
+  }
+  .el-icon-error{
+    font-size: 50px;
   }
 }
 </style>

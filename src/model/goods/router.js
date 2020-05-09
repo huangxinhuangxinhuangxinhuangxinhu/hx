@@ -8,44 +8,44 @@ export default [
         component: () => import('./views/index'),
         children: [
             {
-                path: 'domestic',
-                name: 'domestic',
+                path: 'domf',
+                name: 'domf',
                 meta: {
                     title: '国产水果'
                 },
-                component: () => import('./views/domestic')
+                component: () => import('./views/domf')
             },
             {
-                path: 'entrance',
-                name: 'entrance',
+                path: 'impf',
+                name: 'impf',
                 meta: {
                     title: '进口水果'
                 },
-                component: () => import('./views/entrance')
+                component: () => import('./views/impf')
             },
             {
-                path: 'sarcocarp',
-                name: 'sarcocarp',
+                path: 'pup',
+                name: 'pup',
                 meta: {
                     title: '果肉制品'
                 },
-                component: () => import('./views/sarcocarp')
+                component: () => import('./views/pup')
             },
             {
-                path: 'chemical',
-                name: 'chemical',
+                path: 'org',
+                name: 'org',
                 meta: {
                     title: '有机化肥'
                 },
-                component: () => import('./views/chemical')
+                component: () => import('./views/org')
             },
             {
-                path: 'boutique',
-                name: 'boutique',
+                path: 'box',
+                name: 'box',
                 meta: {
                     title: '精品礼盒'
                 },
-                component: () => import('./views/boutique')
+                component: () => import('./views/box')
             }
         ]
     }
