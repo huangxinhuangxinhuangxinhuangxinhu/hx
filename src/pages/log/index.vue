@@ -66,7 +66,7 @@ export default {
                 if(data.code == 0){
                     // 获取token并保存到本地
                     localStorage.setItem('token',data.token);
-                    this.$router.push('../pages/manage');
+                    this.$router.push('/manage');
         
                 }else{
                     // console.log('不行')
