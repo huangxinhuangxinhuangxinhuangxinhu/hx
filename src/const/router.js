@@ -5,6 +5,10 @@ let router = [
         Iconfont: 'el-icon-message',//图标
         children: [
             {
+                path: '/manage/goods/home',
+                name: '首页商品',
+            },
+            {
                 path: '/manage/goods/domf',
                 name: '国产水果',
             },

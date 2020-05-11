@@ -11,7 +11,7 @@
         :key="index"
       >
         <template>
-          <img v-if="item.prop == 'img'" :src="logo" alt />
+          <img v-if="item.prop == 'src'" :src="item.src" alt />
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="100" v-if="operate">
@@ -35,7 +35,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 import logo from "../../src/assets/logo.png";
 export default {
   props: {
@@ -80,9 +79,14 @@ export default {
   },
   methods: {
     getUrl() {
-      axios.get(
-        `http://localhost:8080/${this.url}?pages=${this.pages}&size=${this.size}`
-      );
+      this.$axios
+        .get(
+          `http://localhost:1910${this.url}?pages=${this.pages}&size=${this.size}`
+        )
+        .then(({ data }) => {
+          window.console.log(data);
+          this.tableData = data;
+        });
     },
     //修改一页显示的条数
     handleSizeChange(val) {

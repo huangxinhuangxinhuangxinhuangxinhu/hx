@@ -1,6 +1,7 @@
 <template>
+<!--  首页管理 -->
   <div>
-    <Table :operate="operate" :newly="newly" :columns="columns" />
+    <Table :operate="operate" :newly="newly" :columns="columns" :url="url" />
   </div>
 </template>
 <script>
@@ -11,31 +12,32 @@ export default {
   },
   data() {
     return {
+      url:'/home',
       operate: true, //是否显示操作栏
       newly: true, //是否显示新增按钮
       columns: [
-        {
+      {
           prop: "id",
           label: "编号",
           "min-width": 80
         },
-        {
+         {
           prop: "sku",
           label: "库存",
           minWidth: 120
         },
         {
-          prop: "sex",
-          label: "商品名称",
+          prop: "name",
+          label: "水果名称",
           minWidth: 120
         },
         {
-          prop: "className",
+          prop: "price",
           label: "价格",
           minWidth: 160
         },
         {
-          prop: "classGrade",
+          prop: "src",
           label: "图片",
           minWidth: 150
         }

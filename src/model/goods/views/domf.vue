@@ -1,7 +1,7 @@
 <template>
 <!--  国产水果 -->
   <div>
-    <Table :operate="operate" :newly="newly" :columns="columns" />
+    <Table :operate="operate" :newly="newly" :columns="columns" :url="url" />
   </div>
 </template>
 <script>
@@ -12,6 +12,7 @@ export default {
   },
   data() {
     return {
+       url:'/domf',
       operate: true, //是否显示操作栏
       newly: true, //是否显示新增按钮
       columns: [
@@ -20,23 +21,23 @@ export default {
           label: "编号",
           "min-width": 80
         },
-        {
-          prop: "stuName",
-          label: "水果种类",
+         {
+          prop: "sku",
+          label: "库存",
           minWidth: 120
         },
         {
-          prop: "sex",
+          prop: "name",
           label: "水果名称",
           minWidth: 120
         },
         {
-          prop: "className",
+          prop: "price",
           label: "价格",
           minWidth: 160
         },
         {
-          prop: "classGrade",
+          prop: "src",
           label: "图片",
           minWidth: 150
         }

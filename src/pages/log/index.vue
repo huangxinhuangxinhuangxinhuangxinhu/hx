@@ -84,7 +84,7 @@ export default {
 
 <style lang="scss">
 body{
-  background-color: rgba(53, 24, 24, 0.836);
+  background-color: rgba(17, 13, 13, 0.925);
 }
 .center{
   width:500px;
@@ -93,6 +93,7 @@ body{
   h1{
     text-align: center;
     padding-bottom: 30px;
+    color: blue;
   }
 .el-button{
   width: 100px;

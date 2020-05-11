@@ -8,6 +8,14 @@ export default [
         component: () => import('./views/index'),
         children: [
             {
+                path: 'home',
+                name: 'home',
+                meta: {
+                    title: '首页商品'
+                },
+                component: () => import('./views/home')
+            },
+            {
                 path: 'domf',
                 name: 'domf',
                 meta: {
@@ -46,7 +54,16 @@ export default [
                     title: '精品礼盒'
                 },
                 component: () => import('./views/box')
+            },
+
+            /********************  新增and修改  ***************************/
+
+            {
+                path:'addUpdateBox',
+                name:'addUpdateBox',
+                component:()=>import('./add-update/box-update')
             }
+
         ]
     }
 ]
