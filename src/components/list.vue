@@ -45,11 +45,33 @@
 
 <script>
 export default {
+  props: {
+    url1: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    url2: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    url3: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
   data() {
     return {
       dialogVisible: false,
       dialogImageUrl: "",
       disabled: false,
+      id: null,
+      start: "",
       sizeForm: {
         name: "",
         price: "",
@@ -57,16 +79,38 @@ export default {
       }
     };
   },
+  created() {
+    this.start = this.$route.query.start;
+    this.id = this.$route.query.id;
+  },
   methods: {
+    //根据id查询数据
+    getData() {
+      this.$axios[this.url1.means](
+        `http://localhost:1910${this.url1.http}?id=${this.id}`
+      ).then();
+    },
+    //立即添加
     onSubmit() {
-      this.sizeForm.dialogImageUrl = this.dialogImageUrl;
       console.log(this.sizeForm);
+    },
+    //添加数据
+    addGoods() {
+      this.$axios[this.url2.means](
+        `http://localhost:1910${this.url2.http}`
+      ).then();
+    },
+    updataGoods() {
+      this.$axios[this.url3.means](
+        `http://localhost:1910${this.url3.http}`
+      ).then();
     },
     handleRemove(file) {
       console.log(file);
+      1;
     },
     handlePictureCardPreview(file) {
-      window.console.log(file)
+      window.console.log(file);
       this.dialogImageUrl = file.url;
       window.console.log(this.dialogImageUrl);
       this.dialogVisible = true;

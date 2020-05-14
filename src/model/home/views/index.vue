@@ -4,7 +4,6 @@
     </div>
 </template>
 <script>
-import Table from "../../../components/list";
 export default {
     
 }

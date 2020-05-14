@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Table :operate="operate" :newly="newly" :columns="columns" />
+    <Table
+      :operate="operate"
+      :newly="newly"
+      :columns="columns"
+      @Newly="toNewly"
+      @update="toUpdate"
+    />
   </div>
 </template>
 <script>
@@ -44,15 +50,23 @@ export default {
   },
   methods: {
     //修改的信息，需要传id，去table组件，添加一个参数
-    toUpdate(val) {
-      window.console.log(val);
+    toUpdate(id) {
+      this.$router.push({
+        path: "/manage/goods/addUpdateBox",
+        query: { start: "update", id }
+      });
     },
     ////删除的信息，也需要一个id
     toDelete(val) {
       window.console.log(val);
     },
     //新增
-    toNewly() {}
+    toNewly() {
+      this.$router.push({
+        path: "/manage/goods/addUpdateBox",
+        query: { start: "new" }
+      });
+    }
   }
 };
 </script>

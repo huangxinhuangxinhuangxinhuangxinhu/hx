@@ -71,7 +71,11 @@ export default {
       value: true,
       pages: 1,
       size: 10,
-      tableData: []
+      tableData: [
+        {
+          id:1
+        }
+      ]
     };
   },
   created() {
