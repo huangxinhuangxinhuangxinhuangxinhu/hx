@@ -33,7 +33,7 @@
       </el-dialog>
     </el-form-item>
     <el-form-item label="库存">
-      <el-input v-model="sizeForm.stock"></el-input>
+      <el-input v-model="sizeForm.sku"></el-input>
     </el-form-item>
 
     <el-form-item size="large">
@@ -44,24 +44,25 @@
 </template>
 
 <script>
+import qs from "qs";
 export default {
   props: {
     url1: {
-      type: Object,
+      type: String,
       default() {
-        return {};
+        return "";
       }
     },
     url2: {
-      type: Object,
+      type: String,
       default() {
-        return {};
+        return "";
       }
     },
     url3: {
-      type: Object,
+      type: String,
       default() {
-        return {};
+        return "";
       }
     }
   },
@@ -75,35 +76,62 @@ export default {
       sizeForm: {
         name: "",
         price: "",
-        stock: ""
+        sku: ""
       }
     };
   },
   created() {
     this.start = this.$route.query.start;
     this.id = this.$route.query.id;
+    window.console.log(this.$route.query);
+    this.getData();
   },
   methods: {
     //根据id查询数据
     getData() {
-      this.$axios[this.url1.means](
-        `http://localhost:1910${this.url1.http}?id=${this.id}`
-      ).then();
+      this.$axios
+        .get(`http://localhost:1910${this.url1}/${this.id}`)
+        .then(({ data }) => {
+          this.sizeForm = { ...data[0] };
+        });
     },
     //立即添加
     onSubmit() {
-      console.log(this.sizeForm);
+      this.$route.query.start == "update"
+        ? this.updataGoods()
+        : this.addGoods();
     },
     //添加数据
     addGoods() {
-      this.$axios[this.url2.means](
-        `http://localhost:1910${this.url2.http}`
-      ).then();
+      this.$axios
+        .post(
+          `http://localhost:1910${this.url2}`,
+          qs.stringify({
+            name: this.sizeForm.name,
+            price: this.sizeForm.price,
+            sku: this.sizeForm.sku
+          })
+        )
+        .then(data => {
+          this.$router.go(-1);
+          window.console.log(data);
+        });
     },
+    //修改数据
     updataGoods() {
-      this.$axios[this.url3.means](
-        `http://localhost:1910${this.url3.http}`
-      ).then();
+      this.$axios
+        .patch(
+          `http://localhost:1910${this.url3}/${this.id}`,
+          qs.stringify({
+            name: this.sizeForm.name,
+            price: this.sizeForm.price,
+            sku: this.sizeForm.sku
+          })
+        )
+        .then(data => {
+          this.$router.go(-1);
+          window.console.log(data);
+        });
     },
     handleRemove(file) {
       console.log(file);

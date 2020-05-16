@@ -15,9 +15,9 @@
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="100" v-if="operate">
-        <template>
-          <el-button type="text" size="small" @click="onUpdate">修改</el-button>
-          <el-button type="text" size="small" @click="onDelete">删除</el-button>
+        <template  slot-scope="scope">
+          <el-button type="text" size="small" @click="onUpdate(scope.row)">修改</el-button>
+          <el-button type="text" size="small" @click="onDelete(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -102,11 +102,11 @@ export default {
       this.pages = val;
       this.getUrl();
     },
-    onUpdate(val) {
-      this.$emit("update", val);
+    onUpdate(row) {
+      this.$emit("update", row.id);
     },
-    onDelete(val) {
-      this.$emit("Delete", val);
+    onDelete(row) {
+      this.$emit("Delete", row.id);
     },
     onNewly() {
       this.$emit("Newly");

@@ -62,7 +62,22 @@ export default [
                 path:'addUpdateBox',
                 name:'addUpdateBox',
                 component:()=>import('./add-update/box-update')
-            }
+            },
+            {
+                path:'addUpdateHome',
+                name:'addUpdateHome',
+                component:()=>import('./add-update/home-update')
+            },
+            {
+                path:'addUpdateDomf',
+                name:'addUpdateDomf',
+                component:()=>import('./add-update/domf-update')
+            },
+            {
+                path:'addUpdateImpf',
+                name:'addUpdateImpf',
+                component:()=>import('./add-update/impf-update')
+            },
 
         ]
     }

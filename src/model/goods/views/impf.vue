@@ -1,7 +1,8 @@
 <template>
 <!--  进口水果 -->
   <div>
-    <Table :operate="operate" :newly="newly" :columns="columns" :url="url" />
+    <Table :operate="operate" :newly="newly" :columns="columns" 
+    :url="url" @Newly="toNewly" @Delete="toDelete" @update="toUpdate" />
   </div>
 </template>
 <script>
@@ -44,17 +45,26 @@ export default {
       ]
     };
   },
-  methods: {
+ methods: {
     //修改的信息，需要传id，去table组件，添加一个参数
-    toUpdate(val) {
-      window.console.log(val);
+    toUpdate(id) {
+      window.console.log(id)
+      this.$router.push({
+        path: "/manage/goods/addUpdateImpf",
+        query: { start: "update", id }
+      });
     },
     ////删除的信息，也需要一个id
     toDelete(val) {
       window.console.log(val);
     },
     //新增
-    toNewly() {}
+    toNewly() {
+      this.$router.push({
+        path: "/manage/goods/addUpdateImpf",
+        query: { start: "new" }
+      });
+    }
   }
 };
 </script>
